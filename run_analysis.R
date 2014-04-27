@@ -6,7 +6,7 @@
 # 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 # 3. Uses descriptive activity names to name the activities in the data set
 # 4. Appropriately labels the data set with descriptive activity names. 
-# 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+# 5. Export the created tidy data set containing the average of each variable for each activity and each subject. 
 
 require(R.utils)
 
@@ -74,18 +74,17 @@ createTidyData <- function(zipfile) {
 	# Export the tidy data
 	write.table(tidydata, file="../tidydata.txt", sep="\t", row.names=FALSE)
 	
-	# TODO - update README.md in the repo describing how the script works. 
-	
 	# finally change back to original directory and remove extracted dir...
 	setwd(originalDir)
 	removeDirectory(newestDir, recursive=T)
 }
 
+# utility function used during creation of final tidy data set.
+# For the given data frame, ignores the first 'skipCols' (indices) columns
+# and calculates mean of each of the remaining cols, returns data frame with
+# single row containing indices and all means.
+# Assumes that all values in index cols are identical
 calculateMeans <- function(df, skipCols) {
-	# for the given data frame, ignores the first 'skipCols' (indices) columns
-	# and calculates mean of each of the remaining cols, returns data frame with
-	# single row containing indices and all means.
-	# Assumes that all values in index cols are identical
 	result <- as.data.frame(lapply(df[,-c(1,skipCols)],mean))
 	cbind(df[,c(1:skipCols)], result)
 	return(cbind(df[1,c(1:skipCols)], result))
