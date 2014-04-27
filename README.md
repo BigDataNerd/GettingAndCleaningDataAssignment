@@ -15,7 +15,7 @@ The basic processing steps are as follows:
 - Read the data files 'train/Y_train.txt' and 'test/Y_test.txt' containing activity codes.  The data from both files are concatenated into a single data frame. 
 - Merge the subject, activity, and measurement data into a single data frame.
 - Loop over all combinations of unique subject and activity, extract the subset of data for each combination, and calculate the mean for each column of measurement data, aggregating all partial results into a data frame.
-- Export the resulting data frame as 'tidy data.txt', then delete all files and directories extracted from the original zip file.
+- Export the resulting data frame as 'tidydata.txt', then delete all files and directories extracted from the original zip file.
 
 #Assumptions
 * The zip file contents, when extracted, contain the following files:
