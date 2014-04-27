@@ -19,11 +19,11 @@ The basic processing steps are as follows:
 
 #Assumptions
 * The zip file contents, when extracted, contain the following files:
- * features.txt
- * activity_labels.txt
- * train/subject_train.txt
- * test/subject_test.txt
- * train/X_train.txt
- * test/X_test.txt
- * train/Y_train.txt
- * test/Y_test.txt
+ * features.txt: List of all features
+ * activity_labels.txt: Links the class labels with their activity name
+ * train/subject_train.txt: IDs for subjects in training set
+ * test/subject_test.txt: IDs for subjects in test set
+ * train/X_train.txt: Training set of measurement data
+ * test/X_test.txt: Test set of measurement data
+ * train/Y_train.txt: Training labels
+ * test/Y_test.txt: Test labels
